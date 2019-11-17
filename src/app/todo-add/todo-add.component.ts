@@ -27,7 +27,7 @@ export class TodoAddComponent implements OnInit {
 
     this.api.addTodo(payload)
       .subscribe(res => {
-          let id = res['_id'];
+          const id = res.id;
           this.router.navigate(['/']);
         }, (err) => {
           console.log(err);

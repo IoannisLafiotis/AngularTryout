@@ -11,7 +11,7 @@ export class TodoComponent implements OnInit {
 
   data: Todo[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService ) { }
 
   ngOnInit() {
     this.api.getTodos()
@@ -22,10 +22,10 @@ export class TodoComponent implements OnInit {
       });
   }
 
-  deleteTodo(id, index) {
+  deleteTodo(id: any, index: number) {
     this.api.deleteTodo(id)
       .subscribe(res => {
-          this.data.splice(index,1);
+          this.data.splice(index, 1);
         }, (err) => {
           console.log(err);
         }

@@ -13,14 +13,13 @@ const httpOptions = {
 };
 
 
-@Injectable({
-  providedIn: 'root'
+@Injectable({  providedIn: 'root'
 })
-export class ApiService {
 
+export class ApiService {
   constructor(private http: HttpClient) {
    }
-  getTodos (): Observable<Todo[]> {
+  getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(apiUrl, httpOptions)
       .pipe(
         tap(heroes => console.log('fetched todos')),
@@ -36,7 +35,7 @@ export class ApiService {
     );
   }
 
-  addTodo (todo): Observable<Todo> {
+  addTodo(todo): Observable<Todo> {
 
     return this.http.post<Todo>(`${apiUrl}/create.php`, todo, httpOptions).pipe(
       // tslint:disable-next-line: no-shadowed-variable
@@ -45,7 +44,7 @@ export class ApiService {
     );
   }
 
-  updateTodo (id, todo): Observable<any> {
+  updateTodo(id, todo): Observable<any> {
     const url = `${apiUrl}/update.php?id=${id}`;
     return this.http.put(url, todo, httpOptions).pipe(
       tap(_ => console.log(`updated todo id=${id}`)),
@@ -53,7 +52,7 @@ export class ApiService {
     );
   }
 
-  deleteTodo (id): Observable<Todo> {
+  deleteTodo(id): Observable<Todo> {
     const url = `${apiUrl}/delete.php?id=${id}`;
 
     return this.http.delete<Todo>(url, httpOptions).pipe(
@@ -61,7 +60,7 @@ export class ApiService {
       catchError(this.handleError<Todo>('deletetodo'))
     );
   }
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
