@@ -6,7 +6,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Todo } from './todo';
 
 
-const apiUrl = "http://localhost/crud";
+const apiUrl = 'http://localhost/curd';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -18,7 +18,8 @@ const httpOptions = {
 })
 export class ApiService {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+   }
   getTodos (): Observable<Todo[]> {
     return this.http.get<Todo[]>(apiUrl, httpOptions)
       .pipe(
@@ -38,6 +39,7 @@ export class ApiService {
   addTodo (todo): Observable<Todo> {
 
     return this.http.post<Todo>(`${apiUrl}/create.php`, todo, httpOptions).pipe(
+      // tslint:disable-next-line: no-shadowed-variable
       tap((todo: Todo) => console.log(`added todo w/ id=${todo.id}`)),
       catchError(this.handleError<Todo>('addTodo'))
     );
