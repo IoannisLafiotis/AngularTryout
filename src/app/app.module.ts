@@ -4,25 +4,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoComponent } from './todo/todo.component';
-import { TodoAddComponent } from './todo-add/todo-add.component';
-import { TodoEditComponent } from './todo-edit/todo-edit.component';
+
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { ProductsService } from './products.service';
+import { ProductAddComponent } from './product-add/product-add.component';
+import { ProductGetComponent } from './product-get/product-get.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-     TodoComponent,
-      TodoAddComponent,  TodoEditComponent,
+      ProductAddComponent, ProductGetComponent, ProductEditComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
-    ,
+    ReactiveFormsModule,
+    SlimLoadingBarModule
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

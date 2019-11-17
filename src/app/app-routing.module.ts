@@ -1,28 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TodoComponent } from './todo/todo.component';
-import { TodoAddComponent } from './todo-add/todo-add.component';
-import { TodoEditComponent } from './todo-edit/todo-edit.component';
+import { ProductAddComponent } from './product-add/product-add.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductGetComponent } from './product-get/product-get.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: TodoComponent,
-    data: { title: 'title of todos' }
+    path: 'product/create',
+    component: ProductAddComponent
   },
   {
-    path: 'todo/add',
-    component: TodoAddComponent,
-    data: { title: 'add todo' }
+    path: 'edit/:id',
+    component: ProductEditComponent
   },
   {
-    path: 'todo/edit/:id',
-    component: TodoEditComponent,
-    data: { title: 'edit todo' }
-    },
+    path: 'products',
+    component: ProductGetComponent
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
