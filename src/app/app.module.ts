@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
-// import { HeaderComponent } from './components/header/header.component';
-// import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -18,6 +16,7 @@ import { TodoEditComponent } from './todo-edit/todo-edit.component';
       TodoAddComponent,  TodoEditComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule

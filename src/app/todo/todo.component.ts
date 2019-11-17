@@ -24,7 +24,7 @@ export class TodoComponent implements OnInit {
 
   deleteTodo(id, index) {
     this.api.deleteTodo(id)
-      .subscribe(res => {    
+      .subscribe(res => {
           this.data.splice(index,1);
         }, (err) => {
           console.log(err);

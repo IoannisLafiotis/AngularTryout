@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators, NgForm} from "@angular/forms";
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Todo } from '../todo';
+ import { Todo } from '../todo';
 
 @Component({
   selector: 'app-todo-edit',
